@@ -39,7 +39,7 @@ public class UsuarioDto   {
 
   @JsonProperty("ubicacion")
   @Valid
-  private List<BigDecimal> ubicacion = null;
+  private List<Float> ubicacion = null;
 
   @JsonProperty("contrasena")
   private String contrasena = null;
@@ -120,14 +120,14 @@ public class UsuarioDto   {
     this.correo = correo;
   }
 
-  public UsuarioDto ubicacion(List<BigDecimal> ubicacion) {
+  public UsuarioDto ubicacion(List<Float> ubicacion) {
     this.ubicacion = ubicacion;
     return this;
   }
 
-  public UsuarioDto addUbicacionItem(BigDecimal ubicacionItem) {
+  public UsuarioDto addUbicacionItem(Float ubicacionItem) {
     if (this.ubicacion == null) {
-      this.ubicacion = new ArrayList<BigDecimal>();
+      this.ubicacion = new ArrayList<Float>();
     }
     this.ubicacion.add(ubicacionItem);
     return this;
@@ -139,11 +139,11 @@ public class UsuarioDto   {
    **/
   @Schema(description = "Ubicacion del empleado")
       @Valid
-  @Size(min=1,max=1)   public List<BigDecimal> getUbicacion() {
+  @Size(min=1,max=2)   public List<Float> getUbicacion() {
     return ubicacion;
   }
 
-  public void setUbicacion(List<BigDecimal> ubicacion) {
+  public void setUbicacion(List<Float> ubicacion) {
     this.ubicacion = ubicacion;
   }
 

@@ -20,7 +20,7 @@ public class UsuarioService {
 				.nombre(usuarioDto.getNombre())
 				.telefono(usuarioDto.getTelefono())
 				.correo(usuarioDto.getCorreo())
-				//.ubicacion(usuarioDto.getUbicacion())
+				.ubicacion(usuarioDto.getUbicacion())
 				.contrasena(usuarioDto.getContrasena())
 				.build();
 		
@@ -32,8 +32,8 @@ public class UsuarioService {
 				.nombre(u.getNombre())
 				.telefono(u.getTelefono())
 				.correo(u.getCorreo())
-				//.ubicacion(u.getUbicacion())
-				.ubicacion(null)
+				.ubicacion(u.getUbicacion())
+				.ubicacion(u.getUbicacion())
 				.contrasena(u.getContrasena())
 				.build();
 		

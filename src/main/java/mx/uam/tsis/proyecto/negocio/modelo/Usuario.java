@@ -3,6 +3,7 @@ package mx.uam.tsis.proyecto.negocio.modelo;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -31,7 +32,8 @@ public class Usuario {
 	
 	private String correo;
 	
-	//private List<BigDecimal> ubicacion;
+	@ElementCollection
+	private List<Float> ubicacion;
 	
 	private String contrasena;
 }
