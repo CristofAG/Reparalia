@@ -1,0 +1,509 @@
+openapi: 3.0.1
+info:
+  title: API control de Reparaciones Innova
+  description: Esta API lleva el registro y control de usuarios en Reparalia
+  version: 1.0.0
+servers:
+  - url: https://reparalia.mocklab.io
+  - url: https://reparinnova.mocklab.io
+tags:
+  - name: usuarios
+    description: este endpoint maneja toda la informacion relacionada con los usuarios
+  - name: empleados
+    description: este endpoint maneja toda la informacion relacionada con los empleados
+  - name: servicios
+    description: este endpoint maneja toda la información relacionada con los servicios
+paths:
+  /v1/usuarios:
+    post:
+      tags:
+        - usuarios
+      summary: Inserta la información de un nuevo usuario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/usuarioDto'
+        required: true
+      responses:
+        '201':
+          description: El usuario fue registrado correctamente
+          headers:
+            Location:
+              description: URL del usuario creado 
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/usuarioDto'
+        '409':
+          description: Usuario existente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/conflict'
+        
+    get:
+      tags:
+        - usuarios
+      summary: regresa una lista con todos los usuarios
+      responses:
+        '200':
+          description: Usuarios recuperados exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listaUsuariosDto'
+        
+        '404':
+          description: No se encontraron usuarios
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/noEcontrado'
+  /v1/usuarios/{id}:
+    summary: manipulacion de usuarios especificos
+    get:
+      tags:
+        - usuarios
+      summary: Recupera la informacion de un usuario con su id
+      parameters:
+        - name: id
+          in: path
+          description: id del usuario
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Usuario recuperado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/usuarioDto'
+        
+        '404':
+          description: No se encontro el usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/noEcontrado'
+    delete:
+      tags:
+        - usuarios
+      summary: Elimina la información de un usuario con su id
+      parameters:
+        - name: id
+          in: path
+          description: id del usuario
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: usuario eliminado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/usuarioDto'
+        '404':
+          description: No se encontro el usuario, usuario invalido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/noEcontrado'
+    patch:
+      tags:
+        - usuarios
+      summary: Actualiza la información de un usuario con su id
+      parameters:
+        - name: id
+          in: path
+          description: id del usuario
+          required: true
+          example: 1
+          schema:
+            type: integer  
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/usuarioDto'
+        required: false
+      responses:
+        '200':
+          description: Usuario actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/usuarioDto'
+        
+        '404':
+          description: No se encontro el usuario, usuario invalido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/noEcontrado'
+        '400':
+          description: No se pudo actualizar exitosamente 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/badRequest'
+  /v1/empleados:
+    get:
+      tags:
+        - empleados
+      summary: regresa una lista con todos los empleados
+      responses:
+        '200':
+          description: Empleados recuperados exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listaEmpleadosDto'
+        '404':
+          description: No se encontraron empleados
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/responses/noEcontrado'
+    post:
+      tags:
+        - empleados
+      summary: Inserta la información de un nuevo usuario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/empleadoDto'
+        required: true
+      responses:
+        '201':
+          description: El usuario empleado fue registrado correctamente
+          headers:
+            Location:
+              description: URL del empleado creado 
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/empleadoDto'
+        '409':
+          description: Usuario existente
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/responses/conflict'
+  /v1/empleados/{id}:
+    get:
+      tags:
+        - empleados
+      summary: Recupera la información de un empleado con su id
+      parameters:
+        - name: id
+          in: path
+          description: id del empleado
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Empleado recuperado exitósamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/empleadoDto'
+        
+        '404':
+          description: No se encontro el empleado solicitado 
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/responses/noEcontrado'
+    delete:
+      tags:
+        - empleados
+      summary: Elimina la información de un empleado con su id
+      parameters:
+        - name: id
+          in: path
+          description: id del Empleado
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Empleado eliminado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/empleadoDto'
+        '404':
+          description: No se encontro el usuario, usuario invalido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/noEcontrado' 
+    patch:
+      tags:
+        - empleados
+      summary: Actualiza la información de un empleado con su id
+      parameters:
+        - name: id
+          in: path
+          description: id del empleado
+          required: true
+          example: 1
+          schema:
+            type: integer  
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/empleadoDto'
+        required: false
+      responses:
+        '200':
+          description: Empleado actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/empleadoDto'
+        
+        '404':
+          description: No se encontro el usuario, usuario invalido
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/responses/noEcontrado'
+        '400':
+          description: No se pudo actualizar exitosamente 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/badRequest'
+  /v1/servicios:
+    post:
+      tags:
+        - servicios
+      summary: Inserta la informacion de un nuevo servicio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/servicioDto'
+        required: true
+      responses:
+        '201':
+          description: El servicio fue registrado correctamente
+          headers:
+            Location:
+              description: URL del servicio creado 
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servicioDto'
+        '409':
+          description: Servicio existente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/conflict'
+    get:
+      tags:
+        - servicios
+      summary: regresa una lista con todos los servicios
+      responses:
+        '200':
+          description: Servicios recuperados exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listaServiciosDto'
+        
+        '404':
+          description: No se encontraron servicios
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/noEcontrado'
+  /v1/servicios/{id}:
+    delete:
+      tags:
+        - servicios
+      summary: Elimina la información de un servicio con su id
+      parameters:
+        - name: id
+          in: path
+          description: id del Empleado
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Empleado eliminado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/empleadoDto'
+        '404':
+          $ref: '#/components/responses/noEcontrado'
+    patch:
+      tags:
+        - servicios
+      summary: Actualiza la información de un servicio con su id
+      parameters:
+        - name: id
+          in: path
+          description: id del servicio
+          required: true
+          example: 1
+          schema:
+            type: integer  
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/servicioDto'
+        required: false
+      responses:
+        '200':
+          description: Servicio actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servicioDto'
+        
+        '404':
+          description: No se encontro el servicio, servicio invalido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/noEcontrado'
+        '400':
+          description: No se pudo actualizar exitosamente 
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/responses/badRequest'
+components:
+  responses:
+    noAutorizado:
+      description: No se puede completar la accion
+    noEcontrado:
+      description: No se encontró la informacion
+    badRequest:
+      description: Datos incorrectos
+    noContent:
+      description: No se envió contenido
+    conflict:
+      description: El recurso ya existe
+  schemas:
+    usuarioDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: id del usuario
+          example: 1
+        nombre:
+          type: string
+          description: nombre del usuario
+          example: 'Antonio'
+        telefono:
+          type: string
+          description: numero de telefono del usuario
+          example: '5512246687'
+        correo:
+          type: string
+          description: correo del usuario
+          example: 'antonio@mail.com'
+        ubicacion:
+          type: array
+          description: Ubicacion del empleado
+          items:
+            type: number
+            example: [-19.85456, 415.22665]
+          minItems: 1
+          maxItems: 1
+        contrasena:
+          type: string
+          description: contraseña para acceder a la cuenta
+          example: '1234'
+    listaUsuariosDto:
+      type: object
+      properties:
+        listaUsuarios:
+          type: array
+          items:
+            $ref: '#/components/schemas/usuarioDto'
+    empleadoDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: id del usuario
+          example: 1
+        nombre:
+          type: string
+          description: nombre del usuario
+          example: 'Juan'
+        telefono:
+          type: string
+          description: 'numero de telefono del usuario'
+          example: '5512246687'
+        servicio:
+          type: string
+          description: area de trabajo
+          example: 'Carpinteria'
+        ubicacion:
+          type: array
+          description: Ubicacion del empleado
+          items:
+            type: number
+            example: [-19.85456, 415.22665]
+          minItems: 1
+          maxItems: 1
+        contrasena:
+          type: string
+          description: contraseña para acceder a la cuenta
+          example: '4567'
+    listaEmpleadosDto:
+      type: object
+      properties:
+        listaEmpleados:
+          type: array
+          items:
+            $ref: '#/components/schemas/empleadoDto'
+    servicioDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: id del usuario
+          example: 1
+        nombre:
+          type: string
+          description: nombre del usuario
+          example: 'Plomeria'
+        Descripcion:
+          type: string
+          description: Descripcion del servicio
+          example: 'Solución a problemas de tuberías'
+    listaServiciosDto:
+      type: object
+      properties:
+        listaServicios:
+          type: array
+          items:
+            $ref: '#/components/schemas/servicioDto'

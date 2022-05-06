@@ -1,0 +1,7 @@
+{
+    "artifactId": "ReparaliaBack",
+    "invokerPackage": "mx.uam.tsis.proyecto",
+    "configPackage": "mx.uam.tsis.proyecto.configuration",
+    "modelPackage": "mx.uam.tsis.proyecto.api.dto",
+    "apiPackage": "mx.uam.tsis.proyecto.api"
+}
