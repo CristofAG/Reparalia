@@ -1,0 +1,10 @@
+
+.settings/
+.swagger-codegen/
+target/
+.classpath
+.project
+.factorypath
+.swagger-codegen-ignore
+swagger-codegen-cli-3.0.11.jar
+texto.txt
