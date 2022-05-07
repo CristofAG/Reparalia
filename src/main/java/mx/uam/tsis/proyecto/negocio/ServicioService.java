@@ -1,8 +1,11 @@
 package mx.uam.tsis.proyecto.negocio;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import mx.uam.tsis.proyecto.api.dto.ListaServiciosDto;
 import mx.uam.tsis.proyecto.api.dto.ServicioDto;
 import mx.uam.tsis.proyecto.datos.ServicioRepository;
 import mx.uam.tsis.proyecto.negocio.modelo.Servicio;
@@ -29,6 +32,23 @@ public class ServicioService {
 				.descripcion(s.getDescripcion())
 				.build();
 		
+		return dto;
+	}
+	
+	public ListaServiciosDto retrieveAll() {
+		
+		Iterable<Servicio> listaRepo = servicioRepository.findAll();
+		ListaServiciosDto dto = new ListaServiciosDto();
+		
+		ServicioDto servAux;
+		for(Servicio servicio : listaRepo) {
+			servAux = ServicioDto.builder()
+					.id(servicio.getId())
+					.nombre(servicio.getNombre())
+					.descripcion(servicio.getDescripcion())
+					.build();
+			dto.addListaServiciosItem(servAux);
+		}
 		return dto;
 	}
 }

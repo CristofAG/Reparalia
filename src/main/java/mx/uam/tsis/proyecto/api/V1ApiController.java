@@ -160,8 +160,13 @@ public class V1ApiController implements V1Api {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<ListaServiciosDto>(objectMapper.readValue("{\r\n  \"listaServicios\" : [ {\r\n    \"Descripcion\" : \"Solución a problemas de tuberías\",\r\n    \"id\" : 1,\r\n    \"nombre\" : \"Plomeria\"\r\n  }, {\r\n    \"Descripcion\" : \"Solución a problemas de tuberías\",\r\n    \"id\" : 1,\r\n    \"nombre\" : \"Plomeria\"\r\n  } ]\r\n}", ListaServiciosDto.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
+                //return new ResponseEntity<ListaServiciosDto>(objectMapper.readValue("{\r\n  \"listaServicios\" : [ {\r\n    \"Descripcion\" : \"Solución a problemas de tuberías\",\r\n    \"id\" : 1,\r\n    \"nombre\" : \"Plomeria\"\r\n  }, {\r\n    \"Descripcion\" : \"Solución a problemas de tuberías\",\r\n    \"id\" : 1,\r\n    \"nombre\" : \"Plomeria\"\r\n  } ]\r\n}", ListaServiciosDto.class), HttpStatus.NOT_IMPLEMENTED);
+            	ListaServiciosDto dto = servicioService.retrieveAll();
+            	return ResponseEntity
+            			.status(HttpStatus.OK)
+            			.header("Content-Type", "application/json")
+            			.body(dto);
+            } catch (Exception e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<ListaServiciosDto>(HttpStatus.INTERNAL_SERVER_ERROR);
             }

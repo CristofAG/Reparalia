@@ -35,7 +35,6 @@ public class EmpleadoService {
 				.servicio(empleadoDto.getServicio())
 				.telefono(empleadoDto.getTelefono())
 				.ubicacion(empleadoDto.getUbicacion())
-				//.ubicacion(null)
 				.build();
 		
 		e = empleadoRepository.save(e);
@@ -48,7 +47,6 @@ public class EmpleadoService {
 				.servicio(e.getServicio())
 				.telefono(e.getTelefono())
 				.ubicacion(e.getUbicacion())
-				//.ubicacion(null)
 				.build();
 				
 		return dto;
@@ -78,7 +76,6 @@ public class EmpleadoService {
 	public EmpleadoDto getById(Integer id) {
 		
 		Optional <Empleado> empleadoOpt = empleadoRepository.findById(id);
-		//Log.info("Buscando al empleado..." +empleadoOpt.get().getId());
 		EmpleadoDto dto = EmpleadoDto.builder()
 				.id(empleadoOpt.get().getId())
 				.nombre(empleadoOpt.get().getNombre())
@@ -87,7 +84,6 @@ public class EmpleadoService {
 				.telefono(empleadoOpt.get().getTelefono())
 				.ubicacion(empleadoOpt.get().getUbicacion())
 				.build();
-		//return empleadoOpt.get();
 		return dto;
 	}
 }
