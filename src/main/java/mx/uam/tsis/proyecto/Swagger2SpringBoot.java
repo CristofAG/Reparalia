@@ -27,6 +27,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import com.sun.tools.sjavac.Log;
+
 @SpringBootApplication
 @EnableOpenApi
 @ComponentScan(basePackages = { "mx.uam.tsis.proyecto", "mx.uam.tsis.proyecto.api" , "mx.uam.tsis.proyecto.configuration"})
@@ -71,7 +73,7 @@ public class Swagger2SpringBoot implements CommandLineRunner {
 
     }
     
-    @PostConstruct
+	@PostConstruct
     public void iniciaBD() {
     	
     	//Inicializando la BD con los empleados
@@ -105,6 +107,31 @@ public class Swagger2SpringBoot implements CommandLineRunner {
     	Empleado empleado5 = new Empleado(5, "Kennie Rodríguez", ubiEmpleado5, "7975552484", "Carpintería", "ZlztqSW");
     	empleadoRepository.save(empleado5);
     	
+    	List<Float> ubiEmpleado6 = new ArrayList<Float>();
+    	ubiEmpleado6.add((float) 19.415935);
+    	ubiEmpleado6.add((float) -98.906494);
+    	Empleado empleado6 = new Empleado(6, "Dulsea Harries", ubiEmpleado6, "1623387579", "Pintura", "uWUbLnC");
+    	empleadoRepository.save(empleado6);
+    	
+    	//Llenando empleados Cristian
+    	List<Float> ubiEmpleado7 = new ArrayList<Float>();
+    	ubiEmpleado7.add((float) 19.4215611);
+    	ubiEmpleado7.add((float) -98.9877639);
+    	Empleado empleado7 = new Empleado(7, "Wake Roussel", ubiEmpleado7, "2717030659", "Pintura", "jqRQcRY");
+    	empleadoRepository.save(empleado7);
+    	
+    	List<Float> ubiEmpleado8 = new ArrayList<Float>();
+    	ubiEmpleado8.add((float) 19.422774);
+    	ubiEmpleado8.add((float) -98.986822);
+    	Empleado empleado8 = new Empleado(8, "Leola Riccetti", ubiEmpleado8, "4414283595", "Plomería", "RVQN2Vn1Umj");
+    	empleadoRepository.save(empleado8);
+    	
+    	List<Float> ubiEmpleado9 = new ArrayList<Float>();
+    	ubiEmpleado9.add((float) 19.419921);
+    	ubiEmpleado9.add((float) -98.987208);
+    	Empleado empleado9 = new Empleado(9, "Husain Tosney", ubiEmpleado9, "1749828980", "Plomería", "xaFCUS6");
+    	empleadoRepository.save(empleado9);
+    	
     	//Iniciando servicios en la BD
     	Servicio servicio1 = new Servicio(1, "Plomería", "Solución a problemas de tuberías");
     	servicioRepository.save(servicio1);
@@ -124,6 +151,12 @@ public class Swagger2SpringBoot implements CommandLineRunner {
     	ubiUsuario1.add((float) -98.8792526);
     	Usuario usuario1 = new Usuario(1, "Cristofer Alvarado", "9832436127", "chiripa900@gmail.com", ubiUsuario1, "BC6lIQ8L3");
     	usuarioRepository.save(usuario1);
+    	
+    	List<Float> ubiUsuario2 = new ArrayList<Float>();
+    	ubiUsuario2.add((float) 19.4215611);
+    	ubiUsuario2.add((float) -98.9877639);
+    	Usuario usuario2 = new Usuario(2, "Cristian Martínez", "7656543422", "cristian123@gmail.com", ubiUsuario2, "dfgdsa");
+    	usuarioRepository.save(usuario2);
     }
     
 }

@@ -205,7 +205,7 @@ public interface V1Api {
         produces = { "application/json" }, 
         consumes = { "application/json" }, 
         method = RequestMethod.POST)
-    ResponseEntity<UsuarioDto> v1UsuariosPost(@Parameter(in = ParameterIn.DEFAULT, description = "", required=true, schema=@Schema()) @Valid @RequestBody UsuarioDto body);
+    ResponseEntity<?> v1UsuariosPost(@Parameter(in = ParameterIn.DEFAULT, description = "", required=true, schema=@Schema()) @Valid @RequestBody UsuarioDto body);
 
 }
 

@@ -1,8 +1,11 @@
 package mx.uam.tsis.proyecto.negocio;
 
+import java.util.Iterator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jdk.internal.org.jline.utils.Log;
 import mx.uam.tsis.proyecto.api.dto.UsuarioDto;
 import mx.uam.tsis.proyecto.datos.UsuarioRepository;
 import mx.uam.tsis.proyecto.negocio.modelo.Usuario;
@@ -25,14 +28,12 @@ public class UsuarioService {
 				.build();
 		
 		u = usuarioRepository.save(u);
-		
 		//Generamos el dto de Usuario que será regresado
 		UsuarioDto dto = UsuarioDto.builder()
 				.id(u.getId())
 				.nombre(u.getNombre())
 				.telefono(u.getTelefono())
 				.correo(u.getCorreo())
-				.ubicacion(u.getUbicacion())
 				.ubicacion(u.getUbicacion())
 				.contrasena(u.getContrasena())
 				.build();
