@@ -226,8 +226,13 @@ public class V1ApiController implements V1Api {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<ListaUsuariosDto>(objectMapper.readValue("{\r\n  \"listaUsuarios\" : [ {\r\n    \"ubicacion\" : [ 0.8008281904610115 ],\r\n    \"correo\" : \"antonio@mail.com\",\r\n    \"contrasena\" : \"1234\",\r\n    \"id\" : 1,\r\n    \"telefono\" : \"5512246687\",\r\n    \"nombre\" : \"Antonio\"\r\n  }, {\r\n    \"ubicacion\" : [ 0.8008281904610115 ],\r\n    \"correo\" : \"antonio@mail.com\",\r\n    \"contrasena\" : \"1234\",\r\n    \"id\" : 1,\r\n    \"telefono\" : \"5512246687\",\r\n    \"nombre\" : \"Antonio\"\r\n  } ]\r\n}", ListaUsuariosDto.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
+                //return new ResponseEntity<ListaUsuariosDto>(objectMapper.readValue("{\r\n  \"listaUsuarios\" : [ {\r\n    \"ubicacion\" : [ 0.8008281904610115 ],\r\n    \"correo\" : \"antonio@mail.com\",\r\n    \"contrasena\" : \"1234\",\r\n    \"id\" : 1,\r\n    \"telefono\" : \"5512246687\",\r\n    \"nombre\" : \"Antonio\"\r\n  }, {\r\n    \"ubicacion\" : [ 0.8008281904610115 ],\r\n    \"correo\" : \"antonio@mail.com\",\r\n    \"contrasena\" : \"1234\",\r\n    \"id\" : 1,\r\n    \"telefono\" : \"5512246687\",\r\n    \"nombre\" : \"Antonio\"\r\n  } ]\r\n}", ListaUsuariosDto.class), HttpStatus.NOT_IMPLEMENTED);
+            	ListaUsuariosDto dto= usuarioService.retrieveAll();
+                return ResponseEntity
+             		   .status(HttpStatus.OK)
+             		   .header("Content-Type", "application/json")
+            			   .body(dto);
+            } catch (Exception e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<ListaUsuariosDto>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
@@ -254,8 +259,14 @@ public class V1ApiController implements V1Api {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<UsuarioDto>(objectMapper.readValue("{\r\n  \"ubicacion\" : [ 0.8008281904610115 ],\r\n  \"correo\" : \"antonio@mail.com\",\r\n  \"contrasena\" : \"1234\",\r\n  \"id\" : 1,\r\n  \"telefono\" : \"5512246687\",\r\n  \"nombre\" : \"Antonio\"\r\n}", UsuarioDto.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
+                //return new ResponseEntity<UsuarioDto>(objectMapper.readValue("{\r\n  \"ubicacion\" : [ 0.8008281904610115 ],\r\n  \"correo\" : \"antonio@mail.com\",\r\n  \"contrasena\" : \"1234\",\r\n  \"id\" : 1,\r\n  \"telefono\" : \"5512246687\",\r\n  \"nombre\" : \"Antonio\"\r\n}", UsuarioDto.class), HttpStatus.NOT_IMPLEMENTED);
+            	UsuarioDto dto = usuarioService.getById(id);
+            	log.info("Obteniendo al usuario: Nombre=" +dto.getNombre()+ ", id="+dto.getId());
+            	return ResponseEntity
+            			.status(HttpStatus.OK)
+            			.header("Content-Type", "application/json")
+            			.body(dto);
+            } catch (Exception e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<UsuarioDto>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
