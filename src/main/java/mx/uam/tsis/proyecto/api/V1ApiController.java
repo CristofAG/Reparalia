@@ -284,17 +284,10 @@ public class V1ApiController implements V1Api {
             try {
                 //return new ResponseEntity<UsuarioDto>(objectMapper.readValue("{\r\n  \"ubicacion\" : [ 0.8008281904610115 ],\r\n  \"correo\" : \"antonio@mail.com\",\r\n  \"contrasena\" : \"1234\",\r\n  \"id\" : 1,\r\n  \"telefono\" : \"5512246687\",\r\n  \"nombre\" : \"Antonio\"\r\n}", UsuarioDto.class), HttpStatus.NOT_IMPLEMENTED);
             	UsuarioDto dtoU = usuarioService.create(body);
-            	
-            	if(dtoU != null) {
-            		return ResponseEntity
-            				.status(HttpStatus.CREATED)
-            				.header("Location", "/v1/usuarios/"+dtoU.getId())
-            				.body(dtoU);
-            	}else {
-            		return ResponseEntity
-            				.status(HttpStatus.BAD_REQUEST)
-            				.body("No se pudo crear un usuario debido a que ya hay uno con el mismo correo.");
-            	}
+            	return ResponseEntity
+        				.status(HttpStatus.CREATED)
+        				.header("Location", "/v1/usuarios/"+dtoU.getId())
+        				.body(dtoU);
             } catch (Exception e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<UsuarioDto>(HttpStatus.INTERNAL_SERVER_ERROR);
