@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reparaciones Innova - Cerca de mí</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <!--LEAFLET (Alternativa de GMaps)-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="bg-dark barra-navegacion text-white py-3 d-md-flex justify-content-around align-items-center">
+
+        <div class="logo align-items-center ms-5">
+            <!--logo-->
+            <a href="index.html" class="text-decoration-none text-white ">
+                <h2 class="text-center text-md-start ">
+                    <i class="bi bi-wrench-adjustable-circle icono"></i><span
+                        class="logo__titulo fw-bold">Re</span>paralia
+                </h2>
+            </a>
+        </div>
+        <!--fin logo-->
+
+        <div class="navbar navbar-expand-lg navbar-dark">
+            <button class="navbar-toggler " data-bs-toggle="offcanvas" data-bs-target="#navegacion">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <nav class=" text-white offcanvas-body d-none d-lg-flex" id="navegador">
+                <a href="consejos.html" class="  text-decoration-none text-white me-4 barra-link">Consejos</a>
+                <a href="nosotros.html" class="  text-decoration-none text-white me-4 barra-link">Nosotros</a>
+                <a href="sugerencias.html" class="  text-decoration-none text-white me-4 barra-link">Sugerencias</a>
+                <a id="registroLink" href="registro.html" class="  text-decoration-none text-white me-4 barra-link">Registrarse</a>
+                <a href="cerca-de-mi.html" class="  text-decoration-none text-white me-4 barra-link">Cerca de mi</a>
+            </nav>
+
+            <!--copia del de arriba para el offcanvas en pantallas pequeñas-->
+            <div class="offcanvas offcanvas-start bg-dark justify-content-center  " id="navegacion">
+
+                <!--para poder cerrar el canvas -->
+                <p class="navbar-toggler text-end boton-cerrar-canvas " data-bs-toggle="offcanvas"
+                    data-bs-target="#navegacion">
+                    <span class="text-white fw-bold fs-5 ">X</span>
+                </p>
+
+                <a href="index.html" class="text-decoration-none text-white">
+                    <h2 class="">
+                        <i class="bi bi-wrench-adjustable-circle icono"></i><span
+                            class="logo__titulo fw-bold">Re</span>paralia
+                    </h2>
+                </a>
+                <ul class=" text-white offcanvas-body list-unstyled ">
+                    <li class="p-4 fs-3 fw-bold">
+                        <a href="consejos.html" class="  text-decoration-none text-white me-2 barra-link">Consejos</a>
+                    </li>
+                    <li class="p-4 fs-3 fw-bold">
+                        <a href="#" class="  text-decoration-none text-white me-2 barra-link">Nosotros</a>
+                    </li>
+                    <li class="p-4 fs-3 fw-bold">
+                        <a href="sugerencias.html" class="  text-decoration-none text-white me-2 barra-link">Sugerencias</a>
+                    </li>
+                    <li class="p-4 fs-3 fw-bold">
+                        <a href="/index.html" class="  text-decoration-none text-white me-2 barra-link">Registrarse</a>
+                    </li>
+                    <li class="p-4 fs-3 fw-bold">
+                        <a href="/cerca-de-mi.html" class="  text-decoration-none text-white me-2 barra-link">Cerca de
+                            mi</a>
+                    </li>
+                </ul>
+            </div>
+            <!--fin del canvas-->
+    </header>
+
+    <main class="main container-xl mt-3">
+        <!--Contenedor principal-->
+        <div class="row justify-content-center">
+            <div class="col-md-12 animacion">
+                <h4 class="my-2" style="text-align: center;">Procedimiento para finalizar con la reservación...</h4>
+                <p id="prueba" style="text-align: center;">La información del empleado aparecerá a continuación:</p>
+
+                <!--Carta donde aparecerá la info del empleado-->
+                <div class="flex">
+                    <div class="card text-center" style="width:25rem;" id="cartaEmpleado">
+                        <img src="" class="card-img-top" alt="imagenEmpleado" width="200" height="400"
+                            id="imagenEmpleado">
+                        <div class="card-body">
+                            <h5 class="card-title" id="nombreE">Nombre: </h5>
+                            <p class="card-text">El empleado se encargará de ponerse en contacto con usted para más
+                                detalles.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" id="servicioE"><b>Servicio: </b></li>
+                            <li class="list-group-item" id="telefonoE"><b>Teléfono: </b></li>
+                            <li class="list-group-item" id="costoS"><b>Total: </b></li>
+                        </ul>
+                        <!-- <div class="card-body">
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div> -->
+                    </div>
+                </div>
+                <!--FIN carta empleado-->
+                <br>
+                
+                <!--inicio método de pago-->
+                <h4 class="my-2" style="text-align: center;">Método de pago.</h4>
+                <p id="prueba2" style="text-align: center;">Seleccione la opción de su preferencia:</p>
+                <br>
+                <div class="flex">
+                    <div id="paypal-button-container" style="width: 500px;"></div>
+                </div>
+
+                <div class="flex">
+                    <div id="contenedor-exitoso"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <br>
+    </main>
+
+    <!--Inicio parte inferior servicios donde se colocarán las cartas-->
+    <aside>
+    </aside>
+    <br>
+
+    <!-- Replace "test" with your own sandbox Business account app client ID -->
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=MXN"></script>
+
+    <!--Script de JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!--SCRIPT de Alertas-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <footer class="bg-dark py-5">
+        <div class="container-xl  align-items-center">
+            <a href="index.html" class="text-decoration-none text-white ">
+                <h2 class="text-center">
+                    <i class="bi bi-wrench-adjustable-circle icono"></i><span
+                        class="logo__titulo fw-bold">Re</span>paralia
+                </h2>
+            </a>
+            <p class="text-white text-center">Todos los derechos reservados 2022 - Klan Innova</p>
+        </div>
+
+    </footer>
+
+    <script src="./js/hu5.js"></script>
+
+    <!--SCRIPTS DE BOOTSTRAP PARA NAVBAR-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
