@@ -2,9 +2,12 @@
 $(document).ready(function(){
 
     //link para consultar
-    const getServicios= 'http://localhost:8080/v1/servicios';
+    //const getServicios= 'http://localhost:8080/v1/servicios';
+    const getServicios = window.location.protocol + "//" +window.location.host + "/v1/servicios";
+    console.log("URL DE PRUEBA PARA AWS: " + getServicios);
     let resultado;//va a guardar la consulta para no volver a hacer mas get
-    const getEmpleados= 'http://localhost:8080/v1/empleados';
+    //const getEmpleados= 'http://localhost:8080/v1/empleados';
+    const getEmpleados = window.location.protocol + "//" +window.location.host + "/v1/empleados";
     let resultadoEmpleados;
 
     var map;

@@ -1,6 +1,7 @@
 //URL DEL MOCK GENERADO
 var URL = 'https://reparacionesinnova.mocklab.io/';
-var URLAPI = 'http://localhost:8080/';
+//var URLAPI = 'http://localhost:8080/';
+var URLAPI = window.location.protocol + "//" +window.location.host + "/";
 
 $(document).ready(function () {
 

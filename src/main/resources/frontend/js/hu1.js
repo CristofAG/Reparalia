@@ -1,6 +1,7 @@
 //URL DEL MOCK GENERADO
 var URL = 'http://reparinnova.mocklab.io/';
-var URLAPI = 'http://localhost:8080/';
+//var URLAPI = 'http://localhost:8080/';
+var URLAPI = window.location.protocol + "//" +window.location.host + "/";
 //Variable donde se accede al mapa y poder hacer modificaciones
 map;
 $(document).ready(function () {
