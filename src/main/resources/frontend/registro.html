@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reparaciones Innova - Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="bg-dark barra-navegacion text-white py-3 d-md-flex justify-content-around align-items-center">
+
+        <div class="logo align-items-center ms-5">
+            <!--logo-->
+            <a href="index.html" class="text-decoration-none text-white ">
+                <h2 class="text-center text-md-start ">
+                    <i class="bi bi-wrench-adjustable-circle icono"></i><span
+                        class="logo__titulo fw-bold">Re</span>paralia
+                </h2>
+            </a>
+        </div>
+        <!--fin logo-->
+
+        <div class="navbar navbar-expand-lg navbar-dark">
+            <button class="navbar-toggler " data-bs-toggle="offcanvas" data-bs-target="#navegacion">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <nav class=" text-white offcanvas-body d-none d-lg-flex" id="registrado">
+                <a href="consejos.html" class="  text-decoration-none text-white me-4 barra-link">Consejos</a>
+                <a href="nosotros.html" class="  text-decoration-none text-white me-4 barra-link">Nosotros</a>
+                <a href="sugerencias.html" class="  text-decoration-none text-white me-4 barra-link">Sugerencias</a>
+                <a id="registroLink" href="registro.html" class="  text-decoration-none text-white me-4 barra-link">Registrarse</a>
+                <a href="cerca-de-mi.html" class="  text-decoration-none text-white me-4 barra-link">Cerca de mi</a>
+            </nav>
+
+            <!--copia del de arriba para el offcanvas en pantallas pequeñas-->
+            <div class="offcanvas offcanvas-start bg-dark justify-content-center  " id="navegacion">
+
+                <!--para poder cerrar el canvas -->
+                <p class="navbar-toggler text-end boton-cerrar-canvas " data-bs-toggle="offcanvas"
+                    data-bs-target="#navegacion">
+                    <span class="text-white fw-bold fs-5 ">X</span>
+                </p>
+
+                <a href="index.html" class="text-decoration-none text-white">
+                    <h2 class="">
+                        <i class="bi bi-wrench-adjustable-circle icono"></i><span
+                            class="logo__titulo fw-bold">Re</span>paralia
+                    </h2>
+                </a>
+                <ul class=" text-white offcanvas-body list-unstyled ">
+                    <li class="p-4 fs-3 fw-bold">
+                        <a href="consejos.html" class="  text-decoration-none text-white me-2 barra-link">Consejos</a>
+                    </li>
+                    <li class="p-4 fs-3 fw-bold">
+                        <a href="nosotros.html" class="  text-decoration-none text-white me-2 barra-link">Nosotros</a>
+                    </li>
+                    <li class="p-4 fs-3 fw-bold">
+                        <a href="sugerencias.html" class="  text-decoration-none text-white me-2 barra-link">Sugerencias</a>
+                    </li>
+                    <li class="p-4 fs-3 fw-bold">
+                        <a href="registro.html" class="  text-decoration-none text-white me-2 barra-link">Registrarse</a>
+                    </li>
+                    <li class="p-4 fs-3 fw-bold">
+                        <a href="cerca-de-mi.html" class="  text-decoration-none text-white me-2 barra-link">Cerca de mi</a>
+                    </li>
+                </ul>
+            </div>
+            <!--fin del canvas-->
+    </header>
+
+    <main>
+    
+      <form class="form-registro" id="form">
+          
+         <h4>Formulario de registro</h4> 
+          <input class="control" type="text" name="nombres" id="nombres" placeholder="John Doe"> 
+          <input class="control" type="text" name="telefono" id="telefono" placeholder="5531495632"> 
+          <input class="control" type="email" name="correo" id="correo" placeholder="correo@correo.com"> 
+          <input class="control" type="password" name="contrasena" id="contrasena" placeholder="contraseña 8caracteres" >
+          <input class="checkbox" type="checkbox" name="terminos" id="terminos">
+          <label for="terminos">Acepto los Terminos y Condiciones</label>
+            
+
+
+          <input class="boton" type="button" id="registro" value="Registrarme"> 
+          <p> <a href="#">¿Ya tengo cuenta?</a></p>
+
+      </form>  
+      <br><br><br><br>
+
+    </main>
+   
+    <!--Script de JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+    <footer class="bg-dark py-5">
+        <div class="container-xl  align-items-center">
+            <a href="index.html" class="text-decoration-none text-white ">
+                <h2 class="text-center">
+                    <i class="bi bi-wrench-adjustable-circle icono"></i><span
+                        class="logo__titulo fw-bold">Re</span>paralia
+                </h2>
+            </a>
+            <p class="text-white text-center">Todos los derechos reservados 2022 - Klan Innova</p>
+        </div>
+
+    </footer>
+
+
+    <!--SCRIPTS DE BOOTSTRAP PARA NAVBAR-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous">
+    </script>
+    
+    <!--SCRIPTS PARA MOSTRAR LAS ALERTAS DIFERENTES-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="js/hu3.js"></script>
+    
+</body>
+
+</html>

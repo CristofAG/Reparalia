@@ -1,6 +1,6 @@
-# Swagger generated server
+# Reparalia
 
-Spring Boot Server 
+Aplicación hecha utilizando varias tecnologías y con un servidor de Spring Boot
 
 
 ## Overview  
@@ -16,3 +16,6 @@ You can view the api documentation in swagger-ui by pointing to
 http://localhost:8080/  
 
 Change default port value in application.properties
+
+## Más nformación
+Esta aplicación contiene la información de la API generada por Swagger-codegen y la implementación del frontend para tener una experiencia completa.

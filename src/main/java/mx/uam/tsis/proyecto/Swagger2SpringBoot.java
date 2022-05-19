@@ -144,19 +144,6 @@ public class Swagger2SpringBoot implements CommandLineRunner {
     	
     	Servicio servicio4 = new Servicio(4, "Carpintería", "¡Creación de muebles a medida y más!");
     	servicioRepository.save(servicio4);
-    	
-    	//Iniciando la BD con algunos usuarios
-    	List<Float> ubiUsuario1 = new ArrayList<Float>();
-    	ubiUsuario1.add((float) 19.4282224);
-    	ubiUsuario1.add((float) -98.8792526);
-    	Usuario usuario1 = new Usuario(1, "Cristofer Alvarado", "9832436127", "chiripa900@gmail.com", ubiUsuario1, "BC6lIQ8L3");
-    	usuarioRepository.save(usuario1);
-    	
-    	List<Float> ubiUsuario2 = new ArrayList<Float>();
-    	ubiUsuario2.add((float) 19.4215611);
-    	ubiUsuario2.add((float) -98.9877639);
-    	Usuario usuario2 = new Usuario(2, "Cristian Martínez", "7656543422", "cristian123@gmail.com", ubiUsuario2, "dfgdsa");
-    	usuarioRepository.save(usuario2);
     }
     
 }
