@@ -1,0 +1,231 @@
+:root{
+    --primario: #12100E;
+    --secundario: #CFCCD6;
+    --naranja: #EF7B45;
+    --Azul:#246A73;
+    --rojo:#982649;
+
+
+}
+
+.card-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    transition: opacity  ease-in 0.2s;
+    border-radius: 10px;
+}
+
+
+.card:hover .card-image {
+    opacity: 0.25;
+}
+
+
+.logo__titulo{
+    color: var(--rojo);
+}
+
+.servicio{
+    border-radius: 10px;
+}
+
+.entrada-blog{
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rojo);
+}
+
+.boton-blog{/*le da bordes  intercalados a los botones de la parte derecha */
+    border-radius: 10px 0 10px 0;
+}
+
+.boton-blog:hover{
+    background-color: var(--rojo);
+}
+@media (min-width:768px){/*lleva important para que tome en cuenta el cambio */
+    .boton-blog{
+        display: inline !important;
+    } 
+}
+
+.busqueda{
+    border-radius: 10px;
+}
+
+.boton-buscar{
+    border-radius: 10px;
+
+}
+.boton-buscar:hover{
+    background-color: var(--rojo);
+    border: 1px solid var(--rojo);
+}
+@media (min-width:768px){
+    .boton-buscar{
+        display: inline !important;/*lleva el important porque estamos reescribiendo bootstrap*/
+    } 
+}
+
+.boton-cerrar-canvas{
+    border: none;
+    cursor: pointer;
+}
+
+.mapaEstilos {
+    margin: 0px 0px;
+}
+
+.mapa {
+    width: 100%;
+    height: 420px;
+    border: 1px solid black;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#menuPerfil:hover {
+    cursor: pointer;
+}
+
+.spanServicios {
+    animation: color-animation 4s linear infinite;
+}
+
+@keyframes color-animation {
+    0% {
+        color: var(--color-1);
+    }
+    33% {
+        color: var(--color-2);
+    }
+    66% {
+        color: var(--color-3);
+    }
+    100% {
+        color: var(--color-1);
+    }
+}
+
+.coloresServicios {
+    --color-1: #ed4321;
+    --color-2: #439acb;
+    --color-3: #764892;
+}
+
+.submenu {
+    position: absolute;
+    display: none;
+    width: 30%;
+    height: 40%;
+    background-color: whitesmoke;
+    float: inherit;
+    text-align: left;
+    align-items: center;
+}
+
+#menuPerfil:hover .submenu {
+    display: block;
+    border-radius: 20px;
+}
+
+.animacion {
+    animation: fadeIn 0.7s ease-in both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 1%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.form-registro {
+    width: 400px;
+    height: 500px;
+    background: #212120;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.form-registro h4{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.control{
+    width: 100%;
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid white;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: black;
+}
+
+.form-registro p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.form-registro a {
+    color: white;
+    text-decoration: none;
+
+}
+
+.form-registro a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.form-registro .boton {
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+.form-registro .boton:hover {
+    background: #022c7a;
+}
+
+.nosotros-title{
+    
+    color: var(--rojo);
+}
+
+.fuertes {
+    background-image: url('../images/mural.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.fuerte{
+    border-radius: 10px;
+    max-width: 500px;
+}
+
+

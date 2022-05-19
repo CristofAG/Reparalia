@@ -9,14 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     
     <link rel="stylesheet" href="css/style.css">
-
-    <!--LEAFLET (Alternativa de GMaps)-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-        crossorigin=""></script>
 </head>
 <body>
     <header class="bg-dark barra-navegacion text-white py-3 d-md-flex justify-content-around align-items-center">
@@ -33,11 +25,11 @@
             <button class="navbar-toggler " data-bs-toggle="offcanvas" data-bs-target="#navegacion">
                 <span class="navbar-toggler-icon "></span>
             </button>
-            <nav class=" text-white offcanvas-body d-none d-lg-flex" id="registrado">
+            <nav class=" text-white offcanvas-body d-none d-lg-flex">
                 <a href="consejos.html" class="  text-decoration-none text-white me-4 barra-link">Consejos</a>
                 <a href="nosotros.html" class="  text-decoration-none text-white me-4 barra-link">Nosotros</a>
-                <a href="sugerencias.html" class="  text-decoration-none text-white me-4 barra-link">Sugerencias</a>
-                <a href="registro.html" id="registroLink" class="  text-decoration-none text-white me-4 barra-link">Registrarse</a>
+                <a href="#" class="  text-decoration-none text-white me-4 barra-link">Sugerencias</a>
+                <a href="registro.html" class="  text-decoration-none text-white me-4 barra-link">Registrarse</a>
                 <a href="cerca-de-mi.html" class="  text-decoration-none text-white me-4 barra-link">Cerca de mi</a>
             </nav>
 
@@ -62,7 +54,7 @@
                         <a href="nosotros.html" class="  text-decoration-none text-white me-2 barra-link">Nosotros</a>
                     </li>
                     <li class="p-4 fs-3 fw-bold">
-                        <a href="sugerencias.html" class="  text-decoration-none text-white me-2 barra-link">Sugerencias</a>
+                        <a href="#" class="  text-decoration-none text-white me-2 barra-link">Sugerencias</a>
                     </li>
                     <li class="p-4 fs-3 fw-bold">
                         <a href="registro.html" class="  text-decoration-none text-white me-2 barra-link">Registrarse</a>
@@ -72,80 +64,21 @@
                     </li>
                 </ul>
               </div><!--fin del canvas-->
+        
+        
+         
+                    
     </header>
-    
 
     <main class=" main container-xl mt-5 ">
+        <h1>Tu contenido </h1>
+        <p>intenta utilizar las clases de bootstrap lo mas que se pueda.</p>
 
-        <div class="row justify-content-around"><!--Contiene todo el contenido de la pagina -->
+    </main>
 
-            <div class="servicios col-md-6  "><!--parte izquierda de la página-->
-                <div class="busqueda d-md-flex">
-                    <h2 class="d-inline me-4 m-0">Servicios</h2>
 
-                    <input type="search" placeholder="Busca un servicio" class="form-control bg-light me-2 busqueda" id="campoBusqueda">
-                </div>
-                <div id="tarjetas"><!--inicia el js para poner las tarjetas-->
-                    
-                </div><!--fin tarjetas con js-->
 
-                <!-- Modal -->
-                <div class="modal fade" id="modalConfirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Trabajador Encontrado!</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body " id="modalBody">
-                                <p id="nombreEmpleado"></p>
-                                <div id="formaEmpleado">
-                                    
-                                </div>
-                                
-                                
-                            </div>
-                            
-                                
-                            
-                        </div>
-                    </div>
-                </div>
-                <!--fin del modal-->
-                
-            </div><!--fin de parte izquierda-->
-
-            
-            <aside class="col-md-4"><!--inicio parte derecha-->
-                <h2 class="my-5">Consejos útiles</h2>
-                <div class="entrada-blog ">
-
-                    <h3>Como colgar un cuadro</h3>
-
-                    <p>Aprenda a a colgar un cuadro facilmente</p>
-                    <a href="consejo.html" class=" boton-blog text-decoration-none fw-bold btn btn-outline-dark d-block">Leer blog</a>
-                </div>
-                <div class="entrada-blog mt-5 ">
-
-                    <h3>Renueve espacios con solo luces</h3>
-
-                    <p>cosas pequeñas hacen grandes cambios</p>
-                    <a href="consejo.html" class=" boton-blog text-decoration-none fw-bold btn btn-outline-dark d-block">Leer blog</a>
-                </div>
-                <div class="entrada-blog mt-5  ">
-
-                    <h3>¿Qué colores usar?</h3>
-
-                    <p>Aprenda a combinar cualquier color</p>
-                    <a href="consejo.html" class=" boton-blog text-decoration-none fw-bold btn btn-outline-dark d-block">Leer blog</a>
-                </div>
-            </aside><!--fin parte derecha-->
-        </div>
-        
-    </main><!--fin contenido principal-->
-
-    <footer class="bg-dark py-5 mt-5">
-
+    <footer class="bg-dark py-5">
         <div class="container-xl  align-items-center">
             <a href="index.html" class="text-decoration-none text-white ">
                 <h2 class="text-center text-center ">
@@ -157,13 +90,8 @@
         
     </footer>
     
-    <!--jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <!--SCRIPTS DE BOOTSTRAP PARA NAVBAR-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <script src="js/hu2.js"></script>
-
 </body>
 </html>
